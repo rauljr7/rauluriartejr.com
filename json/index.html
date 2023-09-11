@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML to JSON</title>
+    <style>
+      textarea,
+      button {
+        width: 100%;
+      }
+      textarea {
+        min-height: 300px;
+      }
+    </style>
+  </head>
+
+  <body style="padding: 100px;">
+    <textarea id="code"></textarea>
+    <br />
+    <button id="generate">Generate JSON</button>
+    <br />
+    <textarea id="res"></textarea>
+    <div style="display: none;" id="app"></div>
+    <script src="js/walkdom.js"></script>
+    <script>
+      document
+        .getElementById("generate")
+        .addEventListener("click", function (event) {
+          code = document.getElementById("code").value;
+          document.getElementById("app").innerHTML = code;
+          walkdomTree(document.getElementById("app"));
+        });
+    </script>
+  </body>
+</html>
